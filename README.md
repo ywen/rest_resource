@@ -10,7 +10,7 @@ The gem provides a basic CRUD operation to the resources. It is basically rest-c
 The goal of this gem is to provide a minimum CRUD client interface for the RESTful web services. It doesn't make the API to be ActiveRecord like. Rather, it lets the users have the full control on the resources, especially on the error handling.
 
 ## USAGE
-Given you need to fetch user from a web service. You can write:
+Given that you need to fetch user from a web service. You can write:
 
     class User < RestResource::Resource
        class << self
@@ -19,7 +19,7 @@ Given you need to fetch user from a web service. You can write:
          end
 
          def resource_name
-          "resources"
+          "users"
          end
        end
     end
