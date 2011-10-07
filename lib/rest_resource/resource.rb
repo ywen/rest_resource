@@ -14,6 +14,10 @@ module RestResource
 
       private
 
+      def url
+        "#{site}/#{resource_name}"
+      end
+
       def rest_crud
         RestCrud.new(url)
       end

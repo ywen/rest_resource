@@ -6,9 +6,14 @@ module RestResource
     let(:create_params) {{"attr1" => "val1"}}
     let(:klass) {
       Class.new(Resource) do
-      def self.url
-        "http://www.example.com/resources"
+      def self.site
+        "http://www.example.com"
       end
+
+      def self.resource_name
+        "resources"
+      end
+
       end
     }
 
