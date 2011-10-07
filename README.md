@@ -1,7 +1,6 @@
-pivotal_to_pdf -- print the stories from pivotal tracker to a PDF file
+rest_resource -- rest-client gem wrapper to provide you a simple CRUD interface
 ====================================
 
-[![Build Status](http://travis-ci.org/ywen/pivotal_to_pdf.png)](http://travis-ci.org/ywen/pivotal_to_pdf)
 
 ## DESCRIPTION
 The gem provides a basic CRUD operation to the resources. It is basically rest-client wrapper. Once you use it, you have find, create, update and delete (Currently I implemented only find and create)
