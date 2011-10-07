@@ -30,7 +30,7 @@ To use it, you can just do:
 
     user = User.create :name => "Leslie Cheung", :login => "singer"
 
-Both operation assume your web service controller returns a json string which can be initialized into an object.
+Both operations assume your web service controller returns a json string which can be initialized into an object.
 
 ##Contributors
 * Yi Wen
