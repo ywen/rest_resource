@@ -28,7 +28,7 @@ module RestResource
       (class << self; self; end).class_eval do
         params_hash.each_pair do |method_name, value|
           define_method(method_name) do
-            value
+            Value.new(value).value
           end
         end
       end
