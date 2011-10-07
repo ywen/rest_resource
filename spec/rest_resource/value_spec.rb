@@ -31,7 +31,7 @@ module RestResource
           end
 
           it "should set the attribute" do
-            subject.value.attr1.should == "val2"
+            subject.value.attr1.should == "val1"
           end
         end
       end
