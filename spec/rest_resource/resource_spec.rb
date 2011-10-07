@@ -44,11 +44,23 @@ module RestResource
     end
 
     describe ".new" do
-      let(:params) { ActiveSupport::JSON.encode( {"attr1" => "val1", "attr2" => "val2"} ) }
-      let(:resource) {klass.new(params)}
-      {"attr1" => "val1", "attr2" => "val2"}.each_pair do |attr, val|
-        it "should generate '#{attr}' method and return '#{val}'" do
-          resource.send(attr).should == val
+      context "when the params is a string" do
+        let(:params) { ActiveSupport::JSON.encode( {"attr1" => "val1", "attr2" => "val2"} ) }
+        let(:resource) {klass.new(params)}
+        {"attr1" => "val1", "attr2" => "val2"}.each_pair do |attr, val|
+          it "should generate '#{attr}' method and return '#{val}'" do
+            resource.send(attr).should == val
+          end
+        end
+      end
+
+      context "when the params is a hash" do
+        let(:params) { {"attr1" => "val1", "attr2" => "val2"} }
+        let(:resource) {klass.new(params)}
+        {"attr1" => "val1", "attr2" => "val2"}.each_pair do |attr, val|
+          it "should generate '#{attr}' method and return '#{val}'" do
+            resource.send(attr).should == val
+          end
         end
       end
 

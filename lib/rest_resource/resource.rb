@@ -24,7 +24,7 @@ module RestResource
     end
 
     def initialize(params={})
-      params_hash = ActiveSupport::JSON.decode params
+      params_hash = (params.is_a?(String)) ? ActiveSupport::JSON.decode(params) : params
       @attributes = params_hash
       (class << self; self; end).class_eval do
         params_hash.each_pair do |method_name, value|
