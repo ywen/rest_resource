@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Yi Wen"]
   s.email       = ["hayafirst@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{A wrapper over rest-client providing basic CRUD restful web service operation}
+  s.description = %q{A wrapper over rest-client providing basic CRUD restful web service operation}
 
   s.rubyforge_project = "rest_resource"
 
@@ -17,4 +17,6 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+  s.add_runtime_dependency(%q<rest-client>, [">= 0"])
+  s.add_runtime_dependency(%q<active_support>, [">= 0"])
 end
