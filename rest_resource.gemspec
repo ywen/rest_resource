@@ -7,11 +7,9 @@ Gem::Specification.new do |s|
   s.version     = RestResource::VERSION
   s.authors     = ["Yi Wen"]
   s.email       = ["hayafirst@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/ywen/rest_resource"
   s.summary     = %q{A wrapper over rest-client providing basic CRUD restful web service operation}
   s.description = %q{A wrapper over rest-client providing basic CRUD restful web service operation}
-
-  s.rubyforge_project = "rest_resource"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
