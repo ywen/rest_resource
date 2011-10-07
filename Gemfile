@@ -1,7 +1,8 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in rest_resource.gemspec
 gem 'rest-client'
+gem 'active_support'
+gem 'rake'
 group :test do
   gem 'rspec'
 end

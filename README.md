@@ -1,4 +1,4 @@
-rest_resource -- rest-client gem wrapper to provide you a simple CRUD interface
+rest_resource -- rest-client gem wrapper to provide a simple CRUD interface
 ====================================
 
 
@@ -8,7 +8,7 @@ The gem provides a basic CRUD operation to the resources. It is basically rest-c
 ## USAGE
 Given you need to fetch user from a web service. You can write:
 
-    class User < RestResource
+    class User < RestResource::Resource
        class << self
          def url
            "http://www.example.com/users"
