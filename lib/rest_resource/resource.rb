@@ -1,7 +1,6 @@
 module RestResource
   class Resource
     attr_reader :attributes
-    private :attributes
 
     class << self
       def find(resource_id)
