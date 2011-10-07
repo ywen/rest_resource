@@ -1,6 +1,8 @@
 rest_resource -- rest-client gem wrapper to provide a simple CRUD interface
 ====================================
 
+[![Build Status](http://travis-ci.org/ywen/rest_resource.png)](http://travis-ci.org/ywen/rest_resource)
+
 
 ## DESCRIPTION
 The gem provides a basic CRUD operation to the resources. It is basically rest-client wrapper. Once you use it, you have find, create, update and delete (Currently I implemented only find and create)
