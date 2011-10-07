@@ -1,7 +1,7 @@
 rest_resource -- rest-client gem wrapper to provide a simple CRUD interface
 ====================================
 
-[![Build Status](http://travis-ci.org/ywen/rest_resource.png)](http://travis-ci.org/ywen/rest_resource)
+[![Build Status](https://secure.travis-ci.org/ywen/rest_resource.png)](http://travis-ci.org/ywen/rest_resource)
 
 
 ## DESCRIPTION
