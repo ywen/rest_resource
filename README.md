@@ -7,6 +7,8 @@ rest_resource -- rest-client gem wrapper to provide a simple CRUD interface
 ## DESCRIPTION
 The gem provides a basic CRUD operation to the resources. It is basically rest-client wrapper. Once you use it, you have find, create, update and delete (Currently I implemented only find and create)
 
+The goal of this gem is to provide a minimum CRUD client interface for web services. It doesn't try make the interface to be ActiveRecord like, rather, to let the users have the full control on the resources, especially on the error handling.
+
 ## USAGE
 Given you need to fetch user from a web service. You can write:
 
