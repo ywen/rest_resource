@@ -32,5 +32,12 @@ To use it, you can just do:
 
 Both operations assume your web service controller returns a json string which can be initialized into an object.
 
+The gem supports nested resources. For example, if user.address is an instance of Address class and needs to be so. You can specify the json (in ruby hash format) as the following:
+
+    class Address << RestResource::Resource
+      ...
+    end
+
+    {"name" => "Leslie Cheung", ..., "mailing_address" => {"object" => {"address" => {"address_line_1" => "a street"}} }
 ##Contributors
 * Yi Wen
