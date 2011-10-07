@@ -21,12 +21,16 @@ module RestResource
           before(:each) do
             RestResource::TestClass = Class.new(Resource)
           end
+
+          after(:each) do
+            RestResource.send(:remove_const, "TestClass")
+          end
           
           it "should return an object of the type being indicated in the hash" do
             subject.value.should be_a RestResource::TestClass
           end
 
-          it "should set" do
+          it "should set the attribute" do
             subject.value.attr1.should == "val1"
           end
         end
