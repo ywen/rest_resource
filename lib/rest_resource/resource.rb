@@ -11,14 +11,14 @@ module RestResource
         self.new(rest_crud.create(params))
       end
 
+      def rest_crud
+        RestCrud.new(url)
+      end
+
       private
 
       def url
         "#{site}/#{resource_name}"
-      end
-
-      def rest_crud
-        RestCrud.new(url)
       end
     end
 
@@ -32,6 +32,10 @@ module RestResource
           end
         end
       end
-   end
+    end
+    def save
+      self.class.rest_crud.update self.attributes
+    end
+
   end
 end

@@ -6,30 +6,29 @@ module RestResource
     let(:create_params) {{"attr1" => "val1"}}
     let(:klass) {
       Class.new(Resource) do
-      def self.site
-        "http://www.example.com"
-      end
+        def self.site
+          "http://www.example.com"
+        end
 
-      def self.resource_name
-        "resources"
-      end
-
+        def self.resource_name
+          "resources"
+        end
       end
     }
 
+    let(:object) {klass.new "id" => "123", "attr1" => "val"}
+    before(:each) do
+      RestCrud.stub(:new).and_return rest_crud
+    end
+
     %w(find create).each do |method_name|
       describe ".#{method_name}" do
-        before(:each) do
-          RestCrud.stub(:new).and_return rest_crud
-        end
-
-
         it "should initialize a rest crud object" do
           RestCrud.should_receive(:new).with("http://www.example.com/resources").and_return rest_crud
           klass.send(method_name, send("#{method_name}_params"))
         end
 
-        it "should ask rest crud to do the finding" do
+        it "should ask rest crud to do the work" do
           rest_crud.should_receive(method_name).with(send("#{method_name}_params"))
           klass.send(method_name, send("#{method_name}_params"))
         end
@@ -40,6 +39,13 @@ module RestResource
           object.should be_a klass
         end
 
+      end
+    end
+
+    describe ".rest_crud" do
+      it "builds a rest crub instance" do
+        RestCrud.should_receive(:new).with("http://www.example.com/resources").and_return rest_crud
+        klass.rest_crud
       end
     end
 
@@ -76,5 +82,12 @@ module RestResource
         end
       end
     end
+
+    describe "#save" do
+      it "should ask rest crud object to do the update" do
+        rest_crud.should_receive(:update).with(object.attributes)
+        object.save
       end
+    end
   end
+end

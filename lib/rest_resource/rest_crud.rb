@@ -13,5 +13,9 @@ module RestResource
     def create(params)
       RestClient.post "#{url}.json", params
     end
+
+    def update(params)
+      RestClient.put "#{url}.json", params
+    end
   end
 end
