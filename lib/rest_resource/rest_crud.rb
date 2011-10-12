@@ -15,7 +15,7 @@ module RestResource
     end
 
     def update(params)
-      RestClient.put "#{url}.json", params
+      RestClient.put "#{url}/#{params.delete(:id)}.json", params
     end
   end
 end

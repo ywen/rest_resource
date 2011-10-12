@@ -19,8 +19,8 @@ module RestResource
 
     describe "#update" do
       it "should put the resource specified" do
-        RestClient.should_receive(:put).with("http://example.com/resources.json", {:param1 => "value1", :param2 => "values2"})
-        subject.update({:param1 => "value1", :param2 => "values2"})
+        RestClient.should_receive(:put).with("http://example.com/resources/1.json", {:param1 => "value1", :param2 => "values2"})
+        subject.update({:id => 1,:param1 => "value1", :param2 => "values2"})
       end
     end
   end
