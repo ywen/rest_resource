@@ -5,7 +5,7 @@ rest_resource -- rest-client gem wrapper to provide a simple CRUD interface
 
 
 ## DESCRIPTION
-The gem provides a basic CRUD operation to the resources. It is basically rest-client wrapper. Once you use it, you have find, create, update and delete (Currently I implemented only find and create)
+The gem provides a basic CRUD operation to the resources. It is basically rest-client wrapper. Once you use it, you have find, create, update and delete (Currently I implemented find, create and update)
 
 The goal of this gem is to provide a minimum CRUD client interface for the RESTful web services. It doesn't make the API to be ActiveRecord like. Rather, it lets the users have the full control on the resources, especially on the error handling.
 
@@ -29,6 +29,9 @@ To use it, you can just do:
     user = User.find 1
 
     user = User.create :name => "Leslie Cheung", :login => "singer"
+
+    user = User.new :id => 12, :name => "Faye Wang"
+    user.save
 
 Both operations assume your web service controller returns a json string which can be initialized into an object.
 
