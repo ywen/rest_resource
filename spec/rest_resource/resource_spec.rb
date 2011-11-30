@@ -53,6 +53,13 @@ module RestResource
     describe ".all" do
       let(:method_name) {"all"}
       it_should_behave_like "general behavior"
+      it "should intialize resource objects" do
+        rest_crud.stub(:all).and_return(ActiveSupport::JSON.encode([{ "attr1" => "val1" }, { "attr1" => "val2" }]))
+        objects = klass.all all_params
+        objects.size.should == 2
+        objects[0].should be_a klass
+        objects[1].should be_a klass
+      end
     end
 
     describe ".rest_crud" do

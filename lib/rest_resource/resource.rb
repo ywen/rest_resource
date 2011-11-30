@@ -12,7 +12,7 @@ module RestResource
       end
 
       def all(params={})
-        rest_crud.all(params)
+        ActiveSupport::JSON.decode(rest_crud.all(params)).map{|a|self.new(a)}
       end
 
       def rest_crud
