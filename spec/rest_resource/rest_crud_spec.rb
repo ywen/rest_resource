@@ -10,6 +10,13 @@ module RestResource
       end
     end
 
+    describe "#all" do
+      it "should get the resources specified" do
+        RestClient.should_receive(:get).with("http://example.com/resources.json", :params => {:condition => "a condition"})
+        subject.all :condition => "a condition"
+      end
+    end
+
     describe "#create" do
       it "should post the resource specified" do
         RestClient.should_receive(:post).with("http://example.com/resources.json", {:param1 => "value1", :param2 => "values2"})
