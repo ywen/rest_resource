@@ -3,12 +3,16 @@ module RestResource
     attr_reader :attributes
 
     class << self
-      def find(resource_id)
+      def find(resource_id, extra={})
         self.new(rest_crud.find(resource_id))
       end
 
       def create(params)
         self.new(rest_crud.create(params))
+      end
+
+      def all(params={})
+        rest_crud.all(params)
       end
 
       def rest_crud
