@@ -7,10 +7,11 @@ module RestResource
         include HTTParty
         base_uri "#{url}"
       end
+      @url = url
     end
 
     def find(resource_id)
-      http.get "/#{resource_id}.json"
+      RestClient.get "#{url}/#{resource_id}.json"
     end
 
     def all(params)
@@ -18,11 +19,11 @@ module RestResource
     end
 
     def create(params)
-      http.post ".json", params
+      RestClient.post "#{url}.json", params
     end
 
     def update(params)
-      http.put "/#{params.delete(:id)}.json", params
+      RestClient.put "#{url}/#{params.delete(:id)}.json", params
     end
   end
 end
