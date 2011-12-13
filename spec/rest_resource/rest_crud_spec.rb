@@ -18,8 +18,8 @@ module RestResource
 
     describe "#all" do
       it "should get the resources specified" do
-        http.should_receive(:get).with(".json", :query => {:condition => "a condition"}).and_return response
-        subject.all( :condition => "a condition" ).should == "response"
+        RestClient.should_receive(:get).with("http://example.com/resources.json", {:condition => "a condition"}).and_return response
+        subject.all( :condition => "a condition" ).should == response
       end
     end
 

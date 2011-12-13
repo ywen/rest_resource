@@ -15,7 +15,7 @@ module RestResource
     end
 
     def all(params)
-      http.get(".json", :query => params).parsed_response
+      RestClient.get "#{url}.json", params
     end
 
     def create(params)

@@ -4,24 +4,25 @@ module RestResource
 
     class << self
       def find(resource_id, extra={})
-        self.new(rest_crud.find(resource_id))
+        self.new(rest_crud(extra).find(resource_id))
       end
 
       def create(params)
-        self.new(rest_crud.create(params))
+        self.new(rest_crud(params).create(params))
       end
 
       def all(params={})
-        rest_crud.all(params).map{|a|self.new(a)}
+        val = ActiveSupport::JSON.decode(rest_crud(params).all(params))
+        val.map{|a|self.new(a)}
       end
 
-      def rest_crud
-        RestCrud.new(url)
+      def rest_crud(params={})
+        RestCrud.new(url(params))
       end
 
       private
 
-      def url
+      def url(params={})
         "#{site}/#{resource_name}"
       end
     end
