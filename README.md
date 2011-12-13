@@ -33,6 +33,8 @@ To use it, you can just do:
     user = User.new :id => 12, :name => "Faye Wang"
     user.save
 
+    users = User.all :active => true
+
 Both operations assume your web service controller returns a json string which can be initialized into an object.
 
 The gem supports nested resources. For example, if user.address is an instance of Address class and needs to be so. You can specify the json (in ruby hash format) as the following:
